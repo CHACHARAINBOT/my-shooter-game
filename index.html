@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<title>3D Multiplayer Shooter</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Join screen -->
+  <div id="joinScreen">
+    <div id="joinBox">
+      <h1>🔫 3D Arena Shooter</h1>
+      <input id="nameInput" type="text" maxlength="16" placeholder="Enter your name" />
+      <input id="serverInput" type="text" placeholder="Server URL (leave blank for same host)" />
+      <button id="joinBtn">JOIN MATCH</button>
+      <p id="joinMsg"></p>
+    </div>
+  </div>
+
+  <!-- Game HUD -->
+  <div id="hud" class="hidden">
+    <div id="crosshair">+</div>
+    <div id="healthBar"><div id="healthFill"></div><span id="healthText">100</span></div>
+    <div id="scoreBoard">
+      <div>Kills: <span id="killCount">0</span></div>
+      <div>Deaths: <span id="deathCount">0</span></div>
+    </div>
+    <div id="killFeed"></div>
+    <div id="mobileControls">
+      <div id="joystick"><div id="joystickKnob"></div></div>
+      <button id="fireBtn">FIRE</button>
+    </div>
+    <div id="hint">WASD / Joystick = Move | Mouse / Drag = Look | Click / FIRE = Shoot</div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

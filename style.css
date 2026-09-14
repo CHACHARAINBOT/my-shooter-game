@@ -1,0 +1,101 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #000; font-family: 'Segoe UI', Arial, sans-serif; }
+canvas { display: block; }
+
+#joinScreen {
+  position: fixed; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle at center, #1a1a2e, #000);
+  z-index: 100;
+}
+#joinBox {
+  background: rgba(20,20,30,0.9);
+  padding: 32px 28px;
+  border-radius: 14px;
+  border: 1px solid #444;
+  text-align: center;
+  width: 300px;
+}
+#joinBox h1 { color: #fff; font-size: 22px; margin-bottom: 20px; }
+#joinBox input {
+  width: 100%; padding: 12px; margin-bottom: 12px;
+  border-radius: 8px; border: 1px solid #555;
+  background: #222; color: #fff; font-size: 15px;
+}
+#joinBox button {
+  width: 100%; padding: 13px; border: none; border-radius: 8px;
+  background: linear-gradient(90deg, #ff4444, #ff8800);
+  color: #fff; font-weight: bold; font-size: 16px; cursor: pointer;
+}
+#joinBox button:active { transform: scale(0.97); }
+#joinMsg { color: #ff8888; margin-top: 10px; font-size: 13px; min-height: 16px; }
+
+.hidden { display: none !important; }
+
+#hud { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
+
+#crosshair {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: #0f0; font-size: 26px; font-weight: bold;
+  text-shadow: 0 0 4px #000;
+}
+
+#healthBar {
+  position: absolute; bottom: 20px; left: 20px;
+  width: 200px; height: 26px;
+  background: rgba(0,0,0,0.5); border: 2px solid #fff;
+  border-radius: 6px; overflow: hidden;
+}
+#healthFill {
+  height: 100%; width: 100%;
+  background: linear-gradient(90deg, #ff3333, #33ff33);
+}
+#healthText {
+  position: absolute; top: 3px; left: 50%; transform: translateX(-50%);
+  color: #fff; font-weight: bold; font-size: 14px; text-shadow: 0 0 3px #000;
+}
+
+#scoreBoard {
+  position: absolute; top: 16px; right: 16px;
+  color: #fff; text-align: right; font-size: 15px;
+  text-shadow: 0 0 3px #000;
+  background: rgba(0,0,0,0.35); padding: 8px 12px; border-radius: 8px;
+}
+
+#killFeed {
+  position: absolute; top: 16px; left: 16px;
+  color: #fff; font-size: 13px; text-shadow: 0 0 3px #000;
+  display: flex; flex-direction: column; gap: 4px;
+}
+
+#hint {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  color: #aaa; font-size: 11px; text-shadow: 0 0 3px #000;
+}
+
+/* Mobile touch controls */
+#mobileControls { display: none; }
+@media (pointer: coarse) {
+  #mobileControls { display: block; }
+  #hint { display: none; }
+}
+
+#joystick {
+  position: absolute; bottom: 60px; left: 30px;
+  width: 110px; height: 110px; border-radius: 50%;
+  background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.4);
+  pointer-events: all;
+}
+#joystickKnob {
+  position: absolute; top: 35px; left: 35px;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+}
+#fireBtn {
+  position: absolute; bottom: 75px; right: 35px;
+  width: 80px; height: 80px; border-radius: 50%;
+  background: rgba(255,60,60,0.7); border: 2px solid #fff;
+  color: #fff; font-weight: bold; font-size: 14px;
+  pointer-events: all;
+}
